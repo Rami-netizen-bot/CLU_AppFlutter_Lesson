@@ -1,36 +1,20 @@
 import 'package:flutter/material.dart';
 
-void main(List<String> args) {
-  runApp(const MyApp());
-}
+class bottomapp extends StatelessWidget {
+  // ← lowercase b to match main.dart
+  const bottomapp({super.key});
 
-// Add a root MaterialApp widget
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: MyAppbar(), // renamed to avoid conflict with AppBar
-    );
-  }
-}
-
-class MyAppbar extends StatefulWidget {
-  const MyAppbar({super.key});
-
-  @override
-  State<MyAppbar> createState() => _MyAppbarState();
-}
-
-class _MyAppbarState extends State<MyAppbar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 140, 160, 232),
-        leading: IconButton(icon: const Icon(Icons.home), onPressed: () {}),
+        leading: IconButton(
+          icon: const Icon(Icons.home),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         title: const Text("CLU Flutter"),
         actions: <Widget>[
           IconButton(icon: const Icon(Icons.settings), onPressed: () {}),
@@ -46,6 +30,10 @@ class _MyAppbarState extends State<MyAppbar> {
             ),
           ),
         ),
+      ),
+      body: const Center(
+        // ← ADD a body, empty Scaffold causes issues
+        child: Text("Bottom App Bar Page"),
       ),
       bottomNavigationBar: BottomAppBar(
         child: Row(

@@ -13,7 +13,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: MyWidget());
+    return const MaterialApp(
+      home: MyWidget(),
+      debugShowCheckedModeBanner: false,
+    );
   }
 }
 
@@ -23,6 +26,7 @@ class MyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       appBar: AppBar(
         title: const Text("Flutter Scaffold Widget"),
         backgroundColor: Colors.blue,
@@ -40,6 +44,7 @@ class MyWidget extends StatelessWidget {
               },
               child: const Text("Go to Listview"),
             ),
+            SizedBox(height: 25),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -48,6 +53,16 @@ class MyWidget extends StatelessWidget {
                 );
               },
               child: const Text("Go to App Bar Text Field"),
+            ),
+                SizedBox(height: 25),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const bottomapp()),
+                );
+              },
+              child: Text("Go to bottom app"),
             ),
           ],
         ),
