@@ -39,6 +39,12 @@ class _ListviewState extends State<Listview> {
             title: Text("Thunderstorm"),
             subtitle: Text("A day with thunderstorms"),
           ),
+          ListTile(
+            leading: Icon(Icons.text_decrease),
+            title: Text("Text field"),
+            subtitle: Text("A day with text field"),
+           
+          )
         ],
       ),
     );
