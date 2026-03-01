@@ -3,6 +3,7 @@ import 'ScaffoldWidget/Listview.dart';
 import 'ScaffoldWidget/App_bar.dart';
 import 'ScaffoldWidget/bottomapp.dart'; // ← ADD THIS
 import 'ScaffoldWidget/appbar.dart'; // ← ADD THIS
+import 'ScaffoldWidget/sliverappbar.dart';
 
 void main(List<String> args) {
   runApp(const MyApp());
@@ -26,7 +27,6 @@ class MyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       appBar: AppBar(
         title: const Text("Flutter Scaffold Widget"),
         backgroundColor: Colors.blue,
@@ -54,7 +54,7 @@ class MyWidget extends StatelessWidget {
               },
               child: const Text("Go to App Bar Text Field"),
             ),
-                SizedBox(height: 25),
+            SizedBox(height: 25),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -63,6 +63,16 @@ class MyWidget extends StatelessWidget {
                 );
               },
               child: Text("Go to bottom app"),
+            ),
+            SizedBox(height: 25),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Sliverappbar()),
+                );
+              },
+              child: Text("Go to Sliver screen"),
             ),
           ],
         ),
