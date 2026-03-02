@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lesson_flutter/ScaffoldWidget/SlidingUpPanel.dart';
+import 'package:lesson_flutter/ScaffoldWidget/detailpage.dart';
 import 'package:lesson_flutter/ScaffoldWidget/slideable.dart';
 import 'ScaffoldWidget/Listview.dart';
 import 'ScaffoldWidget/App_bar.dart';
@@ -6,6 +8,7 @@ import 'ScaffoldWidget/bottomapp.dart'; // ← ADD THIS
 import 'ScaffoldWidget/appbar.dart'; // ← ADD THIS
 import 'ScaffoldWidget/sliverappbar.dart';
 import 'ScaffoldWidget/sliverappbar.dart';
+import 'ScaffoldWidget/SlidingUpPanel.dart';
 
 void main(List<String> args) {
   runApp(const MyApp());
@@ -85,6 +88,28 @@ class MyWidget extends StatelessWidget {
                 );
               },
               child: Text("Go to slideable button"),
+            ),
+            SizedBox(height: 25),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Slidinguppanel(),
+                  ),
+                );
+              },
+              child: Text("Go to SlideUppanel"),
+            ),
+            SizedBox(height: 25),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Detailpage()),
+                );
+              },
+              child: Text("Go ot detailpage card"),
             ),
           ],
         ),

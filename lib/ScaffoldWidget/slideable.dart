@@ -15,10 +15,28 @@ class _MyslideableState extends State<Myslideable> {
     {"name": "Dara", "role": "UI/UX Designer"},
     {"name": "Mony", "role": "Backend Developer"},
     {"name": "Chenda", "role": "Data Analyst"},
+    {"name": "Messi", "role": "Dev ops"},
+    {"name": "Ronaldo", "role": "Data Science"},
+    {"name": "Neymar", "role": "AI Developer"},
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent, // ← was blending with gradient
+        elevation: 0,
+        leading: IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ), // ← white to be visible
+        ),
+        title: const Text(
+          "Slideable Flutter",
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
       body: ListView.builder(
         itemCount: items.length,
         itemBuilder: (context, index) {
