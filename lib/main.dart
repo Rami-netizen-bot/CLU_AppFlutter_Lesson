@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:lesson_flutter/ScaffoldWidget/slideable.dart';
 import 'ScaffoldWidget/Listview.dart';
 import 'ScaffoldWidget/App_bar.dart';
 import 'ScaffoldWidget/bottomapp.dart'; // ← ADD THIS
 import 'ScaffoldWidget/appbar.dart'; // ← ADD THIS
+import 'ScaffoldWidget/sliverappbar.dart';
 import 'ScaffoldWidget/sliverappbar.dart';
 
 void main(List<String> args) {
@@ -73,6 +75,16 @@ class MyWidget extends StatelessWidget {
                 );
               },
               child: Text("Go to Sliver screen"),
+            ),
+            SizedBox(height: 25),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Myslideable()),
+                );
+              },
+              child: Text("Go to slideable button"),
             ),
           ],
         ),
