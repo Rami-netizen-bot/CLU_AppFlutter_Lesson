@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lesson_flutter/ScaffoldWidget/SlidingUpPanel.dart';
 import 'package:lesson_flutter/ScaffoldWidget/detailpage.dart';
+import 'package:lesson_flutter/ScaffoldWidget/dropdown2.dart';
+import 'package:lesson_flutter/ScaffoldWidget/dropdownflutter.dart';
 import 'package:lesson_flutter/ScaffoldWidget/slideable.dart';
 import 'ScaffoldWidget/Listview.dart';
 import 'ScaffoldWidget/App_bar.dart';
@@ -110,6 +112,28 @@ class MyWidget extends StatelessWidget {
                 );
               },
               child: Text("Go ot detailpage card"),
+            ),
+            SizedBox(height: 25),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Dropdownflutter(),
+                  ),
+                );
+              },
+              child: Text("Go to Dropdown "),
+            ),
+            SizedBox(height: 25),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Dropdown2()),
+                );
+              },
+              child: Text("Go to dropdown 2"),
             ),
           ],
         ),
