@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:lesson_flutter/ScaffoldWidget/SlidingUpPanel.dart';
+import 'package:lesson_flutter/ScaffoldWidget/chooselag.dart';
 import 'package:lesson_flutter/ScaffoldWidget/detailpage.dart';
 import 'package:lesson_flutter/ScaffoldWidget/dropdown2.dart';
 import 'package:lesson_flutter/ScaffoldWidget/dropdownflutter.dart';
+import 'package:lesson_flutter/ScaffoldWidget/homework.dart';
 import 'package:lesson_flutter/ScaffoldWidget/slideable.dart';
+import 'package:lesson_flutter/drawerWidget.dart';
+import 'package:lesson_flutter/get_oop.dart';
 import 'ScaffoldWidget/Listview.dart';
 import 'ScaffoldWidget/App_bar.dart';
 import 'ScaffoldWidget/bottomapp.dart'; // ← ADD THIS
@@ -38,104 +42,152 @@ class MyWidget extends StatelessWidget {
         title: const Text("Flutter Scaffold Widget"),
         backgroundColor: Colors.blue,
       ),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Listview()),
-                );
-              },
-              child: const Text("Go to Listview"),
-            ),
-            SizedBox(height: 25),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const textfield()),
-                );
-              },
-              child: const Text("Go to App Bar Text Field"),
-            ),
-            SizedBox(height: 25),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const bottomapp()),
-                );
-              },
-              child: Text("Go to bottom app"),
-            ),
-            SizedBox(height: 25),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Sliverappbar()),
-                );
-              },
-              child: Text("Go to Sliver screen"),
-            ),
-            SizedBox(height: 25),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Myslideable()),
-                );
-              },
-              child: Text("Go to slideable button"),
-            ),
-            SizedBox(height: 25),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const Slidinguppanel(),
-                  ),
-                );
-              },
-              child: Text("Go to SlideUppanel"),
-            ),
-            SizedBox(height: 25),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Detailpage()),
-                );
-              },
-              child: Text("Go ot detailpage card"),
-            ),
-            SizedBox(height: 25),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const Dropdownflutter(),
-                  ),
-                );
-              },
-              child: Text("Go to Dropdown "),
-            ),
-            SizedBox(height: 25),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Dropdown2()),
-                );
-              },
-              child: Text("Go to dropdown 2"),
-            ),
-          ],
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Listview()),
+                  );
+                },
+                child: const Text("Go to Listview"),
+              ),
+              SizedBox(height: 25),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const textfield()),
+                  );
+                },
+                child: const Text("Go to App Bar Text Field"),
+              ),
+              SizedBox(height: 25),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const bottomapp()),
+                  );
+                },
+                child: Text("Go to bottom app"),
+              ),
+              SizedBox(height: 25),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Sliverappbar(),
+                    ),
+                  );
+                },
+                child: Text("Go to Sliver screen"),
+              ),
+              SizedBox(height: 25),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Myslideable(),
+                    ),
+                  );
+                },
+                child: Text("Go to slideable button"),
+              ),
+              SizedBox(height: 25),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Slidinguppanel(),
+                    ),
+                  );
+                },
+                child: Text("Go to SlideUppanel"),
+              ),
+              SizedBox(height: 25),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Detailpage()),
+                  );
+                },
+                child: Text("Go ot detailpage card"),
+              ),
+              SizedBox(height: 25),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Dropdownflutter(),
+                    ),
+                  );
+                },
+                child: Text("Go to Dropdown "),
+              ),
+              SizedBox(height: 25),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Dropdown2()),
+                  );
+                },
+                child: Text("Go to dropdown 2"),
+              ),
+              SizedBox(height: 25),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Chooselag()),
+                  );
+                },
+                child: Text("Go to Choose language"),
+              ),
+              SizedBox(height: 25),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Homework()),
+                  );
+                },
+                child: Text("Go to homework"),
+              ),
+              SizedBox(height: 25),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const DrawerWidgetDemo(),
+                    ),
+                  );
+                },
+                child: Text("Go to drawer widget"),
+              ),
+              SizedBox(height: 25),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const AuthApp()),
+                  );
+                },
+                child: Text("Go to drawer AuthApp"),
+              ),
+            ],
+          ),
         ),
       ),
     );
