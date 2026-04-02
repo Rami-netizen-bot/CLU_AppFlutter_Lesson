@@ -31,50 +31,75 @@ class _DrawerScreenState extends State<DrawerScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Dashboard',
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
-        ),
-        backgroundColor: const Color(0xFF6366F1),
-        elevation: 0,
-      ),
       drawer: const CustomDrawerWidget(),
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [Colors.indigo.shade50, Colors.blue.shade50],
-          ),
-        ),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Icon(Icons.menu, size: 80, color: Color(0xFF6366F1)),
-              const SizedBox(height: 20),
-              Text(
-                'Tap the menu icon',
-                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.indigo,
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            title: const Text(
+              'Dashboard',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+            backgroundColor: const Color(0xFF6366F1),
+            elevation: 0,
+            floating: true,
+            pinned: true,
+            expandedHeight: 180.0,
+            flexibleSpace: FlexibleSpaceBar(
+              background: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [Colors.indigo.shade400, Colors.blue.shade400],
+                  ),
+                ),
+                child: const Center(
+                  child: Icon(Icons.dashboard, size: 60, color: Colors.white54),
                 ),
               ),
-              const SizedBox(height: 10),
-              Text(
-                'Swipe from left or tap hamburger menu',
-                style: Theme.of(
-                  context,
-                ).textTheme.bodyMedium?.copyWith(color: Colors.grey[600]),
-              ),
-            ],
+            ),
           ),
-        ),
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [Colors.indigo.shade50, Colors.blue.shade50],
+                ),
+              ),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.menu, size: 80, color: Color(0xFF6366F1)),
+                    const SizedBox(height: 20),
+                    Text(
+                      'Tap the menu icon',
+                      style: Theme.of(context).textTheme.headlineSmall
+                          ?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.indigo,
+                          ),
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      'Swipe from left or tap hamburger menu',
+                      style: Theme.of(
+                        context,
+                      ).textTheme.bodyMedium?.copyWith(color: Colors.grey[600]),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -196,7 +221,7 @@ class _CustomDrawerWidgetState extends State<CustomDrawerWidget>
                   gradient: LinearGradient(colors: [Colors.cyan, Colors.blue]),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.cyan.withOpacity(0.4),
+                      color: Colors.cyan,
                       blurRadius: 12,
                       offset: const Offset(0, 4),
                     ),

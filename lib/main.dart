@@ -6,15 +6,17 @@ import 'package:lesson_flutter/ScaffoldWidget/dropdown2.dart';
 import 'package:lesson_flutter/ScaffoldWidget/dropdownflutter.dart';
 import 'package:lesson_flutter/ScaffoldWidget/homework.dart';
 import 'package:lesson_flutter/ScaffoldWidget/slideable.dart';
+import 'package:lesson_flutter/ScaffoldWidget/splashScreen.dart';
 import 'package:lesson_flutter/drawerWidget.dart';
 import 'package:lesson_flutter/get_oop.dart';
 import 'ScaffoldWidget/Listview.dart';
 import 'ScaffoldWidget/App_bar.dart';
-import 'ScaffoldWidget/bottomapp.dart'; // ← ADD THIS
-import 'ScaffoldWidget/appbar.dart'; // ← ADD THIS
+import 'ScaffoldWidget/bottomapp.dart';
+import 'ScaffoldWidget/appbar.dart';
 import 'ScaffoldWidget/sliverappbar.dart';
-import 'ScaffoldWidget/sliverappbar.dart';
-import 'ScaffoldWidget/SlidingUpPanel.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'ScaffoldWidget/choseCategory.dart';
+import 'model/lessonItem.dart';
 
 void main(List<String> args) {
   runApp(const MyApp());
@@ -37,158 +39,143 @@ class MyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<LessonItem> lessons = [
+      LessonItem(
+        number: 1,
+        title: "Listview",
+        description: "Display scrollable list of widgets",
+        page: const Listview(),
+      ),
+      LessonItem(
+        number: 2,
+        title: "App Bar Text Field",
+        description: "Search field inside the AppBar",
+        page: const textfield(),
+      ),
+      LessonItem(
+        number: 3,
+        title: "Bottom App Bar",
+        description: "Navigation bar at the bottom",
+        page: const bottomapp(),
+      ),
+      LessonItem(
+        number: 4,
+        title: "Sliver App Bar",
+        description: "Collapsible scrollable app bar",
+        page: const Sliverappbar(),
+      ),
+      LessonItem(
+        number: 5,
+        title: "Slideable Button",
+        description: "Swipe actions on list items",
+        page: const Myslideable(),
+      ),
+      LessonItem(
+        number: 6,
+        title: "Sliding Up Panel",
+        description: "Bottom sheet panel overlay",
+        page: const Slidinguppanel(),
+      ),
+      LessonItem(
+        number: 7,
+        title: "Detail Page Card",
+        description: "Navigate to a card detail view",
+        page: const Detailpage(),
+      ),
+      LessonItem(
+        number: 8,
+        title: "Dropdown",
+        description: "Basic dropdown selector widget",
+        page: const Dropdownflutter(),
+      ),
+      LessonItem(
+        number: 9,
+        title: "Dropdown 2",
+        description: "Advanced dropdown example",
+        page: const Dropdown2(),
+      ),
+      LessonItem(
+        number: 10,
+        title: "Choose Language",
+        description: "Localization language picker",
+        page: const Chooselag(),
+      ),
+      LessonItem(
+        number: 11,
+        title: "Homework",
+        description: "Practice exercise screen",
+        page: const Homework(),
+      ),
+      LessonItem(
+        number: 12,
+        title: "Drawer Widget",
+        description: "Side navigation drawer demo",
+        page: const DrawerWidgetDemo(),
+      ),
+      LessonItem(
+        number: 13,
+        title: "Auth App",
+        description: "Login and authentication flow",
+        page: const AuthApp(),
+      ),
+      LessonItem(
+        number: 13,
+        title: "Catagary",
+        description: "Chose option Categary",
+        page: const DropdownControllerApp(),
+      ),
+      LessonItem(
+        number: 14,
+        title: "Splash Screen",
+        description: "Main App Book Page",
+        page: const SplashScreen(),
+      ),
+    ];
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Flutter Scaffold Widget"),
-        backgroundColor: Colors.blue,
-      ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Listview()),
-                  );
-                },
-                child: const Text("Go to Listview"),
-              ),
-              SizedBox(height: 25),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const textfield()),
-                  );
-                },
-                child: const Text("Go to App Bar Text Field"),
-              ),
-              SizedBox(height: 25),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const bottomapp()),
-                  );
-                },
-                child: Text("Go to bottom app"),
-              ),
-              SizedBox(height: 25),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Sliverappbar(),
-                    ),
-                  );
-                },
-                child: Text("Go to Sliver screen"),
-              ),
-              SizedBox(height: 25),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Myslideable(),
-                    ),
-                  );
-                },
-                child: Text("Go to slideable button"),
-              ),
-              SizedBox(height: 25),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Slidinguppanel(),
-                    ),
-                  );
-                },
-                child: Text("Go to SlideUppanel"),
-              ),
-              SizedBox(height: 25),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Detailpage()),
-                  );
-                },
-                child: Text("Go ot detailpage card"),
-              ),
-              SizedBox(height: 25),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Dropdownflutter(),
-                    ),
-                  );
-                },
-                child: Text("Go to Dropdown "),
-              ),
-              SizedBox(height: 25),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Dropdown2()),
-                  );
-                },
-                child: Text("Go to dropdown 2"),
-              ),
-              SizedBox(height: 25),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Chooselag()),
-                  );
-                },
-                child: Text("Go to Choose language"),
-              ),
-              SizedBox(height: 25),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Homework()),
-                  );
-                },
-                child: Text("Go to homework"),
-              ),
-              SizedBox(height: 25),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const DrawerWidgetDemo(),
-                    ),
-                  );
-                },
-                child: Text("Go to drawer widget"),
-              ),
-              SizedBox(height: 25),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const AuthApp()),
-                  );
-                },
-                child: Text("Go to drawer AuthApp"),
-              ),
-            ],
+        title: Text(
+          "កិច្ចការសម្រាប់ Mobile Programing",
+          style: GoogleFonts.kantumruyPro(
+            fontSize: 24,
+            fontWeight: FontWeight.w400,
           ),
         ),
+        centerTitle: true,
+      ),
+      body: ListView.separated(
+        itemCount: lessons.length,
+        separatorBuilder: (context, index) => const Divider(height: 1),
+        itemBuilder: (context, index) {
+          final lesson = lessons[index];
+          return ListTile(
+            leading: CircleAvatar(
+              backgroundColor: Colors.indigo.shade50,
+              child: Text(
+                "${lesson.number}",
+                style: TextStyle(
+                  color: Colors.indigo.shade700,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+            title: Text(
+              lesson.title,
+              style: const TextStyle(fontWeight: FontWeight.w500),
+            ),
+            subtitle: Text(
+              lesson.description,
+              style: TextStyle(fontSize: 12, color: Colors.grey.shade600),
+            ),
+            trailing: const Icon(Icons.chevron_right, color: Colors.grey),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => lesson.page),
+              );
+            },
+          );
+        },
       ),
     );
   }

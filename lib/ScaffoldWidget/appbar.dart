@@ -30,10 +30,10 @@ class __MyappbarState extends State<_Myappbar> {
         title: Text("App bar homework"),
         content: const Text('success homework'),
         actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('No'),
-          ),
+          // TextButton(
+          //   onPressed: () => Navigator.pop(context),
+          //   child: const Text('No'),
+          // ),
           TextButton(
             onPressed: () => Navigator.push(
               context,

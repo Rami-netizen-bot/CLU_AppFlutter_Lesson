@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:lesson_flutter/ScaffoldWidget/appbar.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:lesson_flutter/main.dart';
 
 class Homework extends StatefulWidget {
   const Homework({super.key});
@@ -15,7 +18,10 @@ class _HomeworkState extends State<Homework> {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => MyApp()),
+            );
           },
           icon: Icon(Icons.arrow_back),
         ),
@@ -36,10 +42,9 @@ class _HomeworkState extends State<Homework> {
       body: Center(
         child: Text(
           "កិច្ចការផ្ទះ",
-          style: TextStyle(
+          style: GoogleFonts.kantumruyPro(
             fontSize: 24,
             color: Colors.cyan[500],
-            fontWeight: FontWeight.bold,
           ),
         ),
       ),
