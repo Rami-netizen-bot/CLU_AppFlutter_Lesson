@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lesson_flutter/ScaffoldWidget/choseCategory.dart';
 import 'package:lesson_flutter/ScaffoldWidget/lessonScreen.dart';
 import 'package:lesson_flutter/ScaffoldWidget/lessonScreen.dart';
+import 'package:lesson_flutter/ScaffoldWidget/profileApp.dart';
 
 class Program extends StatefulWidget {
   const Program({super.key});
@@ -11,7 +13,7 @@ class Program extends StatefulWidget {
 }
 
 int _counter = 0;
-final List<String> _pages = ['ទំព័រដើម', 'គណនី'];
+int _selectedIndex = 1;
 
 String getGreeting() {
   final hour = DateTime.now().hour;
@@ -100,24 +102,42 @@ class _ProgramState extends State<Program> {
         backgroundColor: Colors.black,
         selectedItemColor: Color(0xFFD65A60),
         unselectedItemColor: Colors.white70,
-        currentIndex: 0,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: Colors.white, size: 28),
-            label: 'ទំព័រដើម',
-          ),
-
-          BottomNavigationBarItem(
-            icon: Icon(Icons.menu, color: Colors.white, size: 28),
-            label: 'គណនី',
-          ),
-        ],
+        currentIndex: _selectedIndex,
+        type: BottomNavigationBarType.fixed,
         onTap: (index) {
           setState(() {
-            _counter = index;
+            _selectedIndex = index;
           });
+          if (index == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const Profileapp()),
+            );
+          }
         },
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'ទំព័រដើម'),
+          BottomNavigationBarItem(icon: Icon(Icons.menu), label: 'គណនី'),
+        ],
       ),
+    );
+  }
+
+  Widget _buildBottomNav() {
+    return BottomNavigationBar(
+      backgroundColor: Colors.black,
+      selectedItemColor: Colors.redAccent,
+      unselectedItemColor: Colors.grey,
+      currentIndex: _selectedIndex,
+      onTap: (index) {
+        setState(() {
+          _selectedIndex = index;
+        });
+      },
+      items: [
+        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'ទំព័រដើម'),
+        BottomNavigationBarItem(icon: Icon(Icons.person), label: 'ផ្សេងៗ'),
+      ],
     );
   }
 }
@@ -171,7 +191,7 @@ Widget _buildFeaturedCard(BuildContext context) {
           child: Text(
             'កំណត់',
             style: GoogleFonts.kantumruyPro(
-              color: Colors.white,
+              color: Colors.cyan,
               // fontWeight: FontWeight.bold,
             ),
           ),
@@ -207,3 +227,4 @@ Widget _lessonCard(String title, String description) {
     ),
   );
 }
+

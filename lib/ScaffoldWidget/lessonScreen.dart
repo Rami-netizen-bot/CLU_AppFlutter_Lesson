@@ -12,6 +12,13 @@ class Lessonscreen extends StatefulWidget {
 }
 
 class _LessonscreenState extends State<Lessonscreen> {
+  bool isShowing = true;
+  void toggleStatus(bool value) {
+    setState(() {
+      isShowing = value; // Updates the state with the true/false value
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,6 +101,7 @@ void _showExampleDialog(BuildContext context) {
   showDialog(
     context: context,
     builder: (BuildContext context) {
+      bool isShowing = true;
       return Dialog(
         backgroundColor: Color(0xFF1E1E1E),
         shape: RoundedRectangleBorder(
@@ -127,13 +135,94 @@ void _showExampleDialog(BuildContext context) {
                 ),
               ),
               SizedBox(height: 20),
-              Text(
-                'ស្ថានភាព',
-                style: GoogleFonts.kantumruyPro(
-                  color: Colors.white,
-                  fontSize: 16,
-                ),
+              StatefulBuilder(
+                builder: (BuildContext context, StateSetter setDialogState) {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'ស្ថានភាព',
+                        style: GoogleFonts.kantumruyPro(
+                          color: Colors.white,
+                          fontSize: 16,
+                        ),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(4),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF1E1E1E),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Row(
+                          children: [
+                            // --- BUTTON: SHOW (បង្ហាញ) ---
+                            GestureDetector(
+                              onTap: () {
+                                setDialogState(() {
+                                  isShowing = true; // Set value to true
+                                });
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 16,
+                                  vertical: 8,
+                                ),
+                                decoration: BoxDecoration(
+                                  // FIX: Highlight when isShowing is TRUE
+                                  color: isShowing
+                                      ? const Color(0xFF444444)
+                                      : Colors.transparent,
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Text(
+                                  'បង្ហាញ',
+                                  style: GoogleFonts.kantumruyPro(
+                                    color: isShowing
+                                        ? Colors.white
+                                        : Colors.white38,
+                                    fontSize: 14,
+                                  ),
+                                ),
+                              ),
+                            ),
+
+                            GestureDetector(
+                              onTap: () {
+                                setDialogState(() {
+                                  isShowing = false; // Set value to false
+                                });
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 16,
+                                  vertical: 8,
+                                ),
+                                decoration: BoxDecoration(
+                                  // FIX: Highlight when isShowing is FALSE
+                                  color: !isShowing
+                                      ? const Color(0xFF444444)
+                                      : Colors.transparent,
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Text(
+                                  'បិទ',
+                                  style: GoogleFonts.kantumruyPro(
+                                    color: !isShowing
+                                        ? Colors.white
+                                        : Colors.white38,
+                                    fontSize: 14,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  );
+                },
               ),
+
               SizedBox(height: 10),
 
               Text(
@@ -176,7 +265,7 @@ void _showExampleDialog(BuildContext context) {
                         'ធ្នូ',
                       ], isKhmer: true),
                       _buildSimplePicker(
-                        List.generate(10, (i) => '${2025 + i}'),
+                        List.generate(10, (i) => '${2026 - i}'),
                       ),
                     ],
                   ),
@@ -219,8 +308,10 @@ Widget _buildSimplePicker(List<String> items, {bool isKhmer = false}) {
     child: CupertinoPicker(
       itemExtent: 32.0,
       selectionOverlay: Container(
+        width: double.infinity,
+
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Colors.black26,
           borderRadius: BorderRadius.circular(8),
         ),
       ),
