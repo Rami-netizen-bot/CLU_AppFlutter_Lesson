@@ -17,6 +17,9 @@ import 'ScaffoldWidget/sliverappbar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'ScaffoldWidget/choseCategory.dart';
 import 'model/lessonItem.dart';
+import 'ScaffoldWidget/api_request.dart';
+import 'ScaffoldWidget/hw_api.dart';
+import 'poke_screen.dart';
 
 void main(List<String> args) {
   runApp(const MyApp());
@@ -129,6 +132,24 @@ class MyWidget extends StatelessWidget {
         title: "Splash Screen",
         description: "Main App Book Page",
         page: const SplashScreen(),
+      ),
+      LessonItem(
+        number: 15,
+        title: "API Request Json Data",
+        description: "Follwing code resoure teacher",
+        page: const ApiRequest(),
+      ),
+      LessonItem(
+        number: 16,
+        title: "Homework API Request",
+        description: "Follwing code resoure teacher",
+        page: const HwApiRequest(),
+      ),
+      LessonItem(
+        number: 17,
+        title: "API Pokemon",
+        description: "Pokemon API Test freee",
+        page: const PokeScreen(),
       ),
     ];
 
