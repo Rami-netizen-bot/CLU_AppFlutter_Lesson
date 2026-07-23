@@ -12,7 +12,7 @@ import 'package:lesson_flutter/get_oop.dart';
 import 'ScaffoldWidget/Listview.dart';
 import 'ScaffoldWidget/App_bar.dart';
 import 'ScaffoldWidget/bottomapp.dart';
-import 'ScaffoldWidget/appbar.dart';
+// import 'ScaffoldWidget/appbar.dart';
 import 'ScaffoldWidget/sliverappbar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'ScaffoldWidget/choseCategory.dart';
@@ -20,6 +20,8 @@ import 'model/lessonItem.dart';
 import 'ScaffoldWidget/api_request.dart';
 import 'ScaffoldWidget/hw_api.dart';
 import 'poke_screen.dart';
+import 'flutter_2/sqllite.dart';
+import 'flutter_2/fast_api.dart';
 
 void main(List<String> args) {
   runApp(const MyApp());
@@ -150,6 +152,18 @@ class MyWidget extends StatelessWidget {
         title: "API Pokemon",
         description: "Pokemon API Test freee",
         page: const PokeScreen(),
+      ),
+      LessonItem(
+        number: 18,
+        title: "Homework",
+        description: "Homework convert sql to file",
+        page: const SharedPrefsDemo(),
+      ),
+      LessonItem(
+        number: 19,
+        title: "API todo screen",
+        description: "Homework convert sql to file",
+        page: const ApiTodoScreen(),
       ),
     ];
 

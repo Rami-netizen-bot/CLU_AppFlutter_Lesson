@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'model/pokemon_model.dart';
+import 'ScaffoldWidget/pokemon_detail_screen.dart';
 
 class PokeScreen extends StatefulWidget {
   const PokeScreen({super.key});
